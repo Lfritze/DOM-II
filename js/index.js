@@ -16,6 +16,8 @@
 // Your code goes here
 //------------------------------------------------------------------
 
+//click and mouseover
+
 // used mouseover and mouseout...nav links start out black, mouseover them and they turn green, click links and they turn salmon color (#ff5777). Bears eat salmon.
 
 let navigon = document.querySelectorAll('nav .nav-link');
@@ -27,13 +29,13 @@ navigon.forEach(navigate => {
 
     navigate.addEventListener('click', e => {
         e.target.style.color = '#ff5777';
-        // e.stopPropagation();
+        e.stopPropagation();
     });
 })
 
 
 //----------------------------------------------------------
-
+//mouseleave and mouseenter
 //Scale up ".img-content" pictures
 
 const scaleUpPics = document.querySelectorAll('.img-content');
@@ -55,6 +57,9 @@ const scaleDownPics = document.querySelectorAll('.img-content');
     })
 
 //-----------------------------------------------------------------
+//Wheel
+//prevent default
+
 //Wheel for scrolling into images - cited idea from https://developer.mozilla.org/en-US/docs/Web/API/Element/wheel_event#addEventListener_equivalent
 
 const crazyWheel = document.querySelector('.img-content');
@@ -76,17 +81,44 @@ picSwap.addEventListener('dblclick', e => {
 })
     
 //----------------------------------------------------------------
+// resize
 
 window.addEventListener('resize', e => {
     const changeTitle = document.querySelector('.logo-heading');
     changeTitle.textContent="GO jump in a Volcano!"
 })
 
+//--------------------------------------------------------
+// keydown
 
-// const menu = document.querySelectorAll('nav a')
+window.addEventListener('keydown', e => {
+    alert `Super Nintento, Sega Genesis, when I was dead broke, I couldn't picture this`
+})
 
-//     menu.forEach(e => {
-//         e.addEventListener('click', event => {
-//             event.preventDefault();
-//         })
-//     })
+
+
+//-----------------------------------------------------------
+//mouseout
+
+let pColors = document.querySelectorAll('.text-content p')
+            
+
+pColors.forEach (p => {
+    p.addEventListener('mouseout', () => {
+        p.style.color = 'red';
+    })
+})
+
+
+
+
+//------------------------------------------------------------
+// prevent default on nav
+const menu = document.querySelectorAll('nav a')
+
+    menu.forEach(e => {
+        e.addEventListener('click', event => {
+            event.preventDefault();
+        })
+    })
+
