@@ -109,9 +109,6 @@ pColors.forEach (p => {
     })
 })
 
-
-
-
 //------------------------------------------------------------
 // prevent default on nav
 const menu = document.querySelectorAll('nav a')
@@ -121,4 +118,24 @@ const menu = document.querySelectorAll('nav a')
             event.preventDefault();
         })
     })
+
+    //----------------------------
+    // mouse up and mouseleave
+
+    const mouser = document.querySelectorAll('.content-destination img');
+        mouser.forEach(item => {
+            item.addEventListener('mouseup', event => {
+                item.style.transform = 'scale(2.9)';
+                item.style.transition = 'transform 0.5s';
+            })
+        })
+
+        const fixMouser = document.querySelectorAll('.content-destination img');
+            fixMouser.forEach(item => {
+            item.addEventListener('mouseleave', event => {
+            item.style.transform = 'scale(1)';
+            item.style.transition = 'transform 0.5s';
+        })
+    })
+
 
