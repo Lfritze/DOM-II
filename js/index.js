@@ -61,3 +61,23 @@ let scale = 1;
             wheelie.style.transform = `scale(${scale})`;
         })
 //***************************************************
+// resize
+// from global window
+const headerResize = document.querySelector('.logo-heading');
+
+window.addEventListener('resize', () => {
+    
+    headerResize.textContent='Yada Yada Yada!';
+})
+
+//***************************************************
+//mouseout
+
+let changeParaColors = document.querySelectorAll('.text-content p')
+            
+changeParaColors.forEach (event => {
+    event.addEventListener('mouseout', () => {
+        event.style.color = 'purple';
+    })
+})
+
