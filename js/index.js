@@ -18,14 +18,18 @@ let navThing = document.querySelectorAll('nav .nav-link');
 // resources https://developer.mozilla.org/en-US/docs/Web/Events
 
 navThing.forEach(naverMouse => {
-    naverMouse.addEventListener('mouseover', event => {
-        event.target.style.color = 'purple';
-    });
-
+    
     naverMouse.addEventListener('click', event => {
         event.target.style.color = 'red';
+        
+    });
+
+    naverMouse.addEventListener('mouseover', event => {
+        event.target.style.color = 'purple';
         event.stopPropagation();
     });
+
+    
 })
 //**************************************************** 
 // (see below) mouseleave, mouseenter (4/10 for MVP)
@@ -100,6 +104,7 @@ window.addEventListener('keydown', () => {
 })
 
 //************************************************ */
+
 //mouseup (10/10 for MVP)
 const mouseAround = document.querySelectorAll('.content-destination img');
     mouseAround.forEach(thing => {
@@ -110,11 +115,32 @@ const mouseAround = document.querySelectorAll('.content-destination img');
     })
 
     // Newton's law of action/reaction
+    // mouseLeave to reset mouseup
 
     const newtonsMouseAround = document.querySelectorAll('.content-destination img');
         newtonsMouseAround.forEach(thing => {
-            thing.addEventListener('mouseleave', () => {
+            thing.addEventListener('mouseleave', event => {
             thing.style.transform = 'scale(1)';
             thing.style.transition = 'transform 0.5s';
+            event.stopPropagation();
             })
         })
+
+//************************************** */
+//preventDefault() and stopPropagation()
+
+const linkThing = document.querySelectorAll('a');
+        linkThing.forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                event.stopPropagation();
+                // this stopPropagation prevents the alert below from popping up when you click the link.
+            });
+        });
+        const navTwo = document.querySelector(".main-navigation");
+	
+        navTwo.addEventListener("click", () => {
+          alert("main-nav activated and annoying!!");
+        });
+
+
